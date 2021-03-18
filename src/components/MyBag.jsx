@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 const MyBag = ({ basketProps }) => {
 
     const data = basketProps.Carts;
-    localStorage.setItem(`CartItem`, JSON.stringify(data));
+    // localStorage.setItem(`CartItem`, JSON.stringify(basketProps.Carts));
 
-    // const store = localStorage.getItem('CartItem', JSON.parse(setStore))
-    // console.log(store)
+    // var store = JSON.parse(localStorage.getItem('CartItems'))
+
+
     const ShowData = () => {
         return (
             <>
@@ -56,7 +56,9 @@ const MyBag = ({ basketProps }) => {
     )
 }
 const mapStateToProps = state => ({
-    basketProps: state.basketState
+    basketProps: state.basketState,
+
+
 })
 
 export default connect(mapStateToProps)(MyBag)

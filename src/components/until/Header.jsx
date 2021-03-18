@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { addBasket } from '../../actions/addAction'
 
 const Header = ({ basketProps }) => {
-
+    // var store = JSON.parse(localStorage.getItem('CartItems'))
     return (
         <div className="header">
             <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">

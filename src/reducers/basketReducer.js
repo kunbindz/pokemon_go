@@ -11,10 +11,15 @@ const basketReducer = (state = initialState, action) => {
         height: action.payload.height,
       };
       state.Carts.push(poke);
+      localStorage.setItem(`CartItems`, JSON.stringify(state));
+
       return {
         ...state,
         basketNumber: state.basketNumber + 1,
       };
+
+    case "DELETE_CART":
+      return {};
     default:
       return state;
   }

@@ -7,24 +7,16 @@ export const addBasket = (payload) => {
     });
   };
 };
-// export const getNumber = () => {
-//   return (dispatch) => {
-//     console.log("getting all basket number");
-//     dispatch({
-//       type: "GET_NUMBER_BASKET",
-//     });
-//   };
-// };
-// export const addCart = (payload) => {
-//   return (dispatch) => {
-//     console.log("getData:", payload);
-//     dispatch({
-//       type: "ADD_CART",
-//       payload,
-//     });
-//   };
-// };
 
+export const renamePokemon = (payload) => {
+  return (dispatch) => {
+    console.log("newName:", payload);
+    dispatch({
+      type: "RENAME_POKEMON",
+      payload,
+    });
+  };
+};
 // export const deleteCart = (payload) => {
 //   return (dispatch) => {
 //     dispatch({

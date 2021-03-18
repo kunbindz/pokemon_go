@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addBasket } from '../actions/addAction';
+import { addBasket, renamePokemon } from '../actions/addAction';
 import { GetPokemon } from "../actions/pokemonAction";
 import NotFound from './until/NotFound';
 const Pokemon = (props) => {
@@ -24,12 +24,12 @@ const Pokemon = (props) => {
                 const catchRandom = Math.floor(Math.random() * 100)
                 if (catchRandom >= 50) {
                     var rename = prompt("Catch success! now U can rename pokemon ", `${pokeData.name}`);
-                    toast.success(`added ${rename} to basket success`)
-                    console.log("newName:", rename)
-                    props.addBasket(pokeData);
-
-
-
+                    toast.success(`Added ${rename} to basket success`)
+                    props.addBasket({
+                        ...pokeData,
+                        name: rename
+                    });
+                    // props.renamePokemon(rename)
                 }
                 else {
                     toast.error("Catch failed")
@@ -111,4 +111,4 @@ const mapStateToProps = state => ({
     basketProps: state.basketState
 })
 
-export default connect(mapStateToProps, { addBasket })(Pokemon)
+export default connect(mapStateToProps, { addBasket, renamePokemon })(Pokemon)
